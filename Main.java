@@ -1,11 +1,11 @@
-package com.info;
+package com.inheritance;
 
 public class Main {
 
 	public static void main(String args[]) {
-		BTech b1 = new BTech();
 		
-		b1.printBG("Computer Science");
-		b1.collegeInfo("CSE", 2);
+		ActivaPlus a1 = new ActivaPlus();
+		
+		a1.bill("Activa Plus", 50000);
 	}
 }
