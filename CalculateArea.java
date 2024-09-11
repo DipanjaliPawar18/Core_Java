@@ -32,7 +32,7 @@ class Rectangle {
 	}
 }
 
-public class Calculate {
+public class CalculateArea {
 
 	public static void main(String args[]) {
 		
