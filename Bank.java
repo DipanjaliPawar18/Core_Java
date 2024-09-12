@@ -1,47 +1,48 @@
-package com.dp;
+/*
+ Create a Bank class and declare an instance variable named amount of type double.
+ Create parameterized constructor to initialize variable “amount” with value 10000.
+ Create two methods withdraw(double withdrawalAmount) and deposit(double depositAmount).
+ Calculate withdrawal based on some condition (using ternary operator) like If amount is
+ sufficient then “withdraw successful” message will be printed on the console and amount
+ should be updated after withdraw. Later on, deposit 5000 in the account balance.At the
+ end display total balance on the console.
+*/
 
- 	class RBI {
-	
-	RBI(){
-		System.out.println("Object of RBI is created...!");
-	}
-	public void rateOfInterest() {
-		System.out.println("Our rate of interest is 4.6 %");
-	}
-}
-
- 	class SBI extends RBI {
-	
-	SBI(){
-		System.out.println("Object of SBI is created...!");
-	}
-
-	public void sbiInfo() {
-		System.out.println("we are agreed to all rules relased by RBI");
-	}
-}
-	
- 	class Swiss extends RBI  {
-		
-	Swiss(){
-			System.out.println("Object of Swiss is created...!");
-	}
-
-	public void swissInfo() {
-		System.out.println("MOU is signed with RBI now we are ready to do business in india");
-	}
-}
+package com.lab;
 
 public class Bank {
 	
-	public static void main(String args[]) {
-
-		SBI s = new SBI();
-		s.sbiInfo();
-		s.rateOfInterest();
-		
-		Swiss sw = new Swiss();
-		sw.rateOfInterest();
-		sw.swissInfo();	
+	double amount;
+	
+	Bank(double amount){
+		this.amount = amount;
 	}
+	
+	public void withdraw(double withdrawalAmount) {
+		String status = (withdrawalAmount <= amount) ? "withdraw successful...!" : "You don't have sufficient balance!!!";
+		System.out.println(status);
+		
+		if(status == "withdraw successful...!") {
+			amount = amount - withdrawalAmount;
+		}
+	}
+
+	public void deposit(double depositAmount) {
+		amount = amount + depositAmount;
+		System.out.println("Amount successfully deposited...!");
+	}
+	
+	public static void main(String[] args) {
+
+		Bank b = new Bank(10000);
+		
+		b.deposit(3000);
+		
+		b.withdraw(5000);
+		
+		System.out.println("Available balance is : " + b.amount);
+		
+		b.withdraw(9000);
+	}
+
 }
